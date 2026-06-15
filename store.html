@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERMTHAVEE TIRE - ค้นหายางรถยนต์อัจฉริยะส่งตรงจากโรงงาน</title>
+    <title>PERMTHAVEE TIRE - พิกัดร้านยางรถยนต์ของแท้ ราคาส่งตรงจากคลัง</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #050b14;
-            --brand-yellow: #facc15; /* Michelin Yellow accent */
-            --brand-blue: #1d4ed8;   /* Michelin Blue accent */
-            --card-bg: rgba(15, 23, 42, 0.65);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --primary: #3b82f6;
-            --shopee: #ff5722;
-            --lazada: #06b6d4;
+            --bg-color: #05070f;
+            --glass-bg: rgba(13, 18, 30, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --gold: #f59e0b;
+            --gold-hover: #d97706;
+            --gold-glow: rgba(245, 158, 11, 0.15);
+            --neon-blue: #0ea5e9;
+            --neon-orange: #f97316;
             --font-display: 'Outfit', 'Sarabun', sans-serif;
             --font-body: 'Outfit', 'Sarabun', sans-serif;
         }
@@ -31,14 +31,14 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(250, 204, 21, 0.05) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.07) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.07) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(99, 102, 241, 0.03) 0px, transparent 60%);
             color: var(--text-primary);
             font-family: var(--font-body);
             min-height: 100vh;
@@ -46,11 +46,33 @@
             overflow-x: hidden;
         }
 
+        .ambient-glow-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+            top: 300px;
+            right: -150px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         header {
-            background: rgba(5, 11, 20, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--card-border);
+            background: rgba(5, 7, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
             padding: 20px 8%;
             position: sticky;
             top: 0;
@@ -63,26 +85,17 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .logo-icon {
-            background: linear-gradient(135deg, var(--brand-blue), var(--brand-yellow));
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 22px;
-            font-weight: 900;
-            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+        .logo-img {
+            height: 40px;
+            object-fit: contain;
         }
 
         .logo-text h1 {
             font-family: var(--font-display);
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             letter-spacing: 0.5px;
             color: #fff;
@@ -90,7 +103,7 @@
 
         .logo-text span {
             font-size: 10px;
-            color: var(--brand-yellow);
+            color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
@@ -98,221 +111,237 @@
             margin-top: 2px;
         }
 
+        .badge-guarantee {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.05);
+        }
+
         .main-container {
             max-width: 1200px;
             margin: 40px auto 0;
             padding: 0 24px;
-        }
-
-        /* Interactive Selector Panel (Michelin Style) */
-        .selector-panel {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             position: relative;
         }
 
-        .selector-panel::after {
+        /* Mew Social style clean Bento Header */
+        .hero-banner {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-banner::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--brand-blue), var(--brand-yellow));
-            border-radius: 24px 24px 0 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--neon-blue), transparent);
         }
 
-        .selector-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .selector-title h2 {
+        .hero-banner h2 {
             font-family: var(--font-display);
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: #fff;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 18px;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
-        .selector-title p {
+        .hero-banner p {
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
-        .selector-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 25px;
+        /* Clean search container */
+        .search-wrapper {
+            position: relative;
+            margin: -35px auto 50px;
+            max-width: 600px;
+            z-index: 5;
         }
 
-        @media (max-width: 768px) {
-            .selector-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .selector-box {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .selector-box label {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .selector-box select {
+        .search-wrapper input {
             width: 100%;
-            background: #090f1d;
-            border: 1px solid var(--card-border);
-            padding: 15px;
-            border-radius: 12px;
+            background: rgba(13, 18, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 24px 16px 52px;
+            border-radius: 16px;
             color: #fff;
             font-size: 15px;
             outline: none;
-            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .selector-box select:focus {
-            border-color: var(--brand-blue);
-            box-shadow: 0 0 10px rgba(29, 78, 216, 0.2);
+        .search-wrapper input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        /* Search Results Bento Layout */
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 15px;
+        .search-wrapper i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 16px;
         }
 
-        .results-header h3 {
+        .section-title {
             font-family: var(--font-display);
             font-size: 20px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            margin-top: 40px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title span {
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 25px;
+            gap: 24px;
+            margin-bottom: 60px;
         }
 
-        /* Bento Grid Card Design */
-        .bento-card {
-            background: var(--card-bg);
+        /* Clean Bento-box Card style */
+        .card {
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .bento-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--brand-blue);
-        }
-
-        .bento-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(29, 78, 216, 0.3);
-            box-shadow: 0 15px 35px rgba(29, 78, 216, 0.15);
+            border-color: rgba(245, 158, 11, 0.25);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.05), 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+            min-height: 38px;
         }
 
-        .brand-name {
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo-img {
+            height: 28px;
+            max-width: 140px;
+            object-fit: contain;
+            filter: brightness(1.1);
+        }
+
+        .brand-title {
             font-family: var(--font-display);
             font-size: 18px;
             font-weight: 800;
             color: #fff;
+            letter-spacing: -0.2px;
         }
 
-        .badge-tire {
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--brand-yellow);
-            background: rgba(250, 204, 21, 0.1);
-            border: 1px solid rgba(250, 204, 21, 0.2);
+        .brand-code {
+            font-size: 11px;
+            color: var(--gold);
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.2);
             padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
+            border-radius: 8px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
         }
 
         .card-media {
             width: 100%;
-            height: 150px;
-            background: rgba(3, 7, 18, 0.5);
+            height: 180px;
+            background: rgba(5, 7, 15, 0.4);
             border-radius: 12px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-media {
+            background: rgba(5, 7, 15, 0.6);
+            border-color: rgba(245, 158, 11, 0.1);
         }
 
         .card-media img {
             max-height: 85%;
             max-width: 85%;
             object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card-specs {
-            margin-bottom: 20px;
+        .card:hover .card-media img {
+            transform: scale(1.06);
         }
 
-        .spec-item {
+        .card-desc {
             font-size: 13px;
             color: var(--text-secondary);
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .spec-item i {
-            color: var(--brand-yellow);
-            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            min-height: 40px;
         }
 
         .btn-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn {
@@ -321,7 +350,7 @@
             border-radius: 12px;
             font-family: var(--font-display);
             font-size: 13px;
-            font-weight: 800;
+            font-weight: 700;
             text-decoration: none;
             text-align: center;
             display: flex;
@@ -330,191 +359,130 @@
             gap: 8px;
             border: none;
             cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
         }
 
         .btn-shopee {
-            background: rgba(255, 87, 34, 0.1);
-            color: var(--shopee);
-            border: 1px solid rgba(255, 87, 34, 0.3);
+            background: rgba(249, 115, 22, 0.08);
+            color: var(--neon-orange);
+            border: 1px solid rgba(249, 115, 22, 0.25);
         }
 
         .btn-shopee:hover {
-            background: var(--shopee);
+            background: var(--neon-orange);
             color: #fff;
-            box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
+            border-color: var(--neon-orange);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2);
         }
 
         .btn-lazada {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--lazada);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(14, 165, 233, 0.08);
+            color: var(--neon-blue);
+            border: 1px solid rgba(14, 165, 233, 0.25);
         }
 
         .btn-lazada:hover {
-            background: var(--lazada);
+            background: var(--neon-blue);
             color: #fff;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+            border-color: var(--neon-blue);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
         }
 
         .footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             color: var(--text-secondary);
-            font-size: 12px;
-            border-top: 1px solid var(--card-border);
-            margin-top: 60px;
+            font-size: 13px;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 80px;
+            background: rgba(5, 7, 15, 0.5);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
     <header>
         <div class="logo-area">
-            <div class="logo-icon"><i class="fa-solid fa-compass"></i></div>
+            <img src="Logos/PERMTHAVEE-LOGO.png" alt="PERMTHAVEE TIRE LOGO" class="logo-img" onerror="this.style.display='none'">
             <div class="logo-text">
                 <h1>PERMTHAVEE TIRE</h1>
-                <span>ศูนย์ค้นหาพิกัดและข้อมูลยางรถยนต์ของแท้</span>
+                <span>ศูนย์กระจายยางรถยนต์ของแท้ 100%</span>
             </div>
+        </div>
+        <div class="badge-guarantee">
+            <i class="fa-solid fa-circle-check"></i> รับประกันของแท้ส่งตรงจากโรงงาน
         </div>
     </header>
 
     <div class="main-container">
         
-        <!-- Interactive Tire Selector Panel -->
-        <div class="selector-panel">
-            <div class="selector-title">
-                <h2>เครื่องค้นหายางรถยนต์อัจฉริยะ (Tire Selector Guide)</h2>
-                <p>เลือกประเภทรถยนต์และสไตล์การขับขี่ของคุณ ระบบจะช่วยกรองขนาดและรุ่นยางรถยนต์แนะนำที่เหมาะสมที่สุดให้ทันที</p>
-            </div>
-            
-            <div class="selector-grid">
-                <div class="selector-box">
-                    <label>1. ประเภทรถของคุณ</label>
-                    <select id="vehicle-type" onchange="filterTires()">
-                        <option value="all">ดูประเภทรถยนต์ทั้งหมด</option>
-                        <option value="sedan">รถยนต์นั่งส่วนบุคคล / รถเก๋ง (Eco Car / Sedan)</option>
-                        <option value="suv">รถอเนกประสงค์ / รถ SUV / PPV</option>
-                        <option value="truck">รถกระบะ / รถบรรทุกเชิงพาณิชย์</option>
-                    </select>
-                </div>
-                
-                <div class="selector-box">
-                    <label>2. สไตล์การขับขี่ที่ต้องการ</label>
-                    <select id="driving-style" onchange="filterTires()">
-                        <option value="all">ดูทุกสไตล์การขับขี่</option>
-                        <option value="comfort">เน้นนุ่มเงียบ ขับขี่สบายเป็นหลัก (Comfort)</option>
-                        <option value="sport">เน้นสปอร์ต เกาะถนนแห้งเปียกความเร็วสูง (Sport)</option>
-                        <option value="durability">เน้นทนทาน ลุยดินทางฝุ่น บรรทุกแกร่ง (All-Terrain)</option>
-                    </select>
-                </div>
-
-                <div class="selector-box">
-                    <label>3. ขนาดยางยอดนิยม</label>
-                    <select id="tire-size" onchange="filterTires()">
-                        <option value="all">ดูขนาดยางทั้งหมด</option>
-                        <option value="15">ขอบ 15 นิ้ว (185/60R15, 195/55R15, etc)</option>
-                        <option value="16">ขอบ 16 นิ้ว (205/55R16, etc)</option>
-                        <option value="17">ขอบ 17 นิ้ว (265/65R17, etc)</option>
-                        <option value="18">ขอบ 18 นิ้ว (265/60R18, 245/45R18, etc)</option>
-                    </select>
-                </div>
-            </div>
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <h2>พิกัดซื้อยางรถยนต์แท้ ราคาส่งโรงงาน</h2>
+            <p>รวมทางเลือกสั่งซื้อยางรถยนต์แบรนด์ชั้นนำและขนาดที่พบบ่อย ผ่านช่องทางร้านค้าอย่างเป็นทางการบน Shopee และ Lazada พร้อมบริการจัดส่งฟรีทั่วประเทศและทางเลือกเก็บเงินปลายทาง</p>
         </div>
 
-        <!-- Section: ผลการค้นหา -->
-        <div class="results-header">
-            <h3><i class="fa-solid fa-list-check" style="color: var(--brand-blue);"></i> ผลการคัดเลือกยางที่เหมาะสม</h3>
-            <span id="results-count" style="font-size: 13px; color: var(--text-secondary);">แสดงผล 6 รายการ</span>
+        <!-- Search Box -->
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="store-search" placeholder="ค้นหาแบรนด์ยาง หรือ ขนาดที่ต้องการ..." onkeyup="filterStore()">
         </div>
 
-        <div class="grid-layout" id="results-grid">
-            <!-- Dynamically Loaded Bento Cards -->
+        <!-- Section 1: แบรนด์ยางรถยนต์ยอดนิยม -->
+        <div class="section-title">
+            <i class="fa-solid fa-tags" style="color: var(--gold);"></i><span>เลือกซื้อตามแบรนด์ยางรถยนต์</span>
+        </div>
+        <div class="grid-layout" id="brand-grid">
+            <!-- Dynamic Brand Render -->
+        </div>
+
+        <!-- Section 2: ขนาดยางยอดฮิต -->
+        <div class="section-title">
+            <i class="fa-solid fa-expand" style="color: var(--neon-blue);"></i><span>เลือกซื้อตามขนาดยางยอดฮิต</span>
+        </div>
+        <div class="grid-layout" id="size-grid">
+            <!-- Dynamic Size Render -->
         </div>
 
     </div>
 
     <div class="footer">
-        <p>© 2026 PERMTHAVEE TIRE. จัดส่งฟรีทั่วประเทศ • รองรับบริการเก็บเงินปลายทาง</p>
+        <p>© 2026 PERMTHAVEE TIRE. All Rights Reserved. จัดส่งฟรีทั่วประเทศ • รองรับบริการเก็บเงินปลายทาง</p>
     </div>
 
     <script>
-        // Premium Tires database
-        const tires = [
-            {
-                name: "Bridgestone Turanza 6",
-                brand: "Bridgestone",
-                rim: "16",
-                type: "sedan",
-                style: "comfort",
-                desc: "ยางเก๋งเกรดนุ่มเงียบพรีเมียมตัวท็อป รีดน้ำบนถนนเปียกได้สมบูรณ์แบบ ขับขี่สบายเงียบสงัด",
-                lazada: "https://s.lazada.co.th/s.Z6rUaA?sub_aff_id=D6P",
-                shopee: "https://s.shopee.co.th/9ztLjue5VJ",
-                specs: ["นุ่มเงียบระดับ Premium Touring", "ลดระยะเบรกถนนเปียกสั้นพิเศษ", "อายุใช้งานยาวนานทนทาน"]
-            },
-            {
-                name: "Dunlop Grandtrek AT5",
-                brand: "Dunlop",
-                rim: "18",
-                type: "suv",
-                style: "durability",
-                desc: "ยางออฟโรดกระบะยกสูงและ SUV ยอดฮิต ดอกทนทาน ลุยทางกรวดทรายทางหินแกร่ง",
-                lazada: "https://s.lazada.co.th/s.ZhWZL1?c=b&sub_aff_id=D6P",
-                shopee: "https://s.shopee.co.th/6pxvVZ5y94",
-                specs: ["ยาง All-Terrain ทนทานพิเศษ", "รองรับทางฝุ่นและทางดินเรียบ", "บล็อกดอกยางป้องกันหินคีบ"]
-            },
-            {
-                name: "Michelin Primacy SUV+",
-                brand: "Michelin",
-                rim: "17",
-                type: "suv",
-                style: "comfort",
-                desc: "ที่สุดของความนุ่มเงียบสำหรับรถ SUV หรู เดินทางเงียบสนิท ปลอดภัยสูงสุดยามฝนตกหนัก",
-                lazada: "https://s.lazada.co.th/s.zLT47?cc",
-                shopee: "https://s.shopee.co.th/5AihBJN3PE",
-                specs: ["โครงสร้างแก้มยางหนานุ่มสบาย", "เกาะถนนเปียกเป็นเลิศ", "นุ่มสลายแรงกระแทกตลอดทาง"]
-            },
-            {
-                name: "Yokohama ADVAN dB V553",
-                brand: "Yokohama",
-                rim: "15",
-                type: "sedan",
-                style: "comfort",
-                desc: "ยางเก๋งเงียบสงัดระดับพรีเมียมญี่ปุ่น รีดลมเงียบพิเศษ เหมาะกับคนรักความสงบในห้องโดยสาร",
-                lazada: "https://s.lazada.co.th/s.Z2IZSh?cc",
-                shopee: "https://s.shopee.co.th/2B66M9bY1K",
-                specs: ["ดีไซน์บล็อกยางลดเสียงสะท้อน", "เกาะถนนดีเยี่ยมทั้งแห้งและเปียก", "รองรับแรงบิดรถพลังงานไฟฟ้า EV"]
-            },
-            {
-                name: "Pirelli Cinturato Rosso",
-                brand: "Pirelli",
-                rim: "15",
-                type: "sedan",
-                style: "sport",
-                desc: "ยางสปอร์ตสัญชาติอิตาลี ควบคุมพวงมาลัยได้คม มั่นใจขณะเข้าโค้งด้วยความเร็วสูงบนถนนเปียก",
-                lazada: "https://s.lazada.co.th/s.ZdAZx6?cc&sub_aff_id=D6P",
-                shopee: "https://s.shopee.co.th/4AvYmUdF4k",
-                specs: ["สไตล์ Sporty Handling ควบคุมแม่น", "ยางประสิทธิภาพสูงทนความเร็ว", "รับประกันอุบัติเหตุยางนาน 365 วัน"]
-            },
-            {
-                name: "Goodyear Wrangler AT SilentTrac",
-                brand: "Goodyear",
-                rim: "15",
-                type: "truck",
-                style: "durability",
-                desc: "ยางกึ่งลุยกึ่งเรียบสำหรับกระบะและ PPV ขาลุย บล็อกดอกยางช่วยซับเสียงทนทานแรงกดทับ",
-                lazada: "https://s.lazada.co.th/s.Z2rNMm?cc",
-                shopee: "https://s.shopee.co.th/5q3150jjhg",
-                specs: ["ทนสึกหรอวิ่งได้ระยะทางสูง", "ป้องกันการบาดตำจากเศษหินและหนาม", "ขับขี่เงียบกว่ายาง A/T ทั่วไป"]
-            }
+        // Database
+        const brands = [
+            { name: "Dunlop (ดันลอป)", code: "AT5 / LM705 Series", logo: "Tires Brand Logo/DUNLOP Logo.png", lazada: "https://s.lazada.co.th/s.Z2rmYE?cc", shopee: "https://s.shopee.co.th/4Aun5IvrHN", desc: "ยางขวัญใจผู้ใช้ทั่วไป นุ่มเงียบ ทนทาน ราคาสบายกระเป๋า สมรรถนะเทียบราคาคุ้มสุดๆ" },
+            { name: "Deestone (ดีสโตน)", code: "RA01 / Payak Series", logo: "Tires Brand Logo/DEESTONE Logo.png", lazada: "https://s.lazada.co.th/s.Zhdeok", shopee: "https://s.shopee.co.th/3LLg5rbz2D", desc: "ยางสัญชาติไทยยอดนิยม ทนทาน ลุยสภาพถนนเมืองไทยได้ดีเยี่ยม ขวัญใจสายคุ้มค่า" },
+            { name: "Bridgestone (บริดจสโตน)", code: "Potenza / Turanza Series", logo: "Tires Brand Logo/BRIDGESTONE LOGO.png", lazada: "https://s.lazada.co.th/s.Z2rNhV?cc", shopee: "https://s.shopee.co.th/7fUfGBogX0", desc: "ยางระดับพรีเมียมเทคโนโลยีญี่ปุ่น ทรงตัวเกาะถนนแม่นยำสูงสุดในทุกสถานการณ์" },
+            { name: "Goodyear (กู๊ดเยียร์)", code: "Wrangler / Assurance Series", logo: "Tires Brand Logo/GOODYEAR Logo.png", lazada: "https://s.lazada.co.th/s.Z2rNMm?cc", shopee: "https://s.shopee.co.th/5q3150jjhg", desc: "ยางแกร่งทนทานเกาะถนนเปียกเป็นเลิศ อายุการใช้งานยาวนาน เดินทางใกล้ไกลอุ่นใจเสมอ" },
+            { name: "Yokohama (โยโกฮาม่า)", code: "ADVAN dB / BluEarth Series", logo: "Tires Brand Logo/YOKOHAMA CAT-V.png", lazada: "https://s.lazada.co.th/s.Z2IZSh?cc", shopee: "https://s.shopee.co.th/2B66M9bY1K", desc: "สุนทรียภาพแห่งความนุ่มเงียบสงบในห้องโดยสาร รีดน้ำดี ประหยัดพลังงานได้ยอดเยี่ยม" },
+            { name: "Michelin (มิชลิน)", code: "Primacy / Energy Series", logo: "Tires Brand Logo/Gemini_Generated_Image_ (2).png", lazada: "https://s.lazada.co.th/s.zLT47?cc", shopee: "https://s.shopee.co.th/5AihBJN3PE", desc: "ยางพรีเมียมนุ่มเงียบอันดับหนึ่ง ประสิทธิภาพสูงสุดตลอดอายุการใช้งานยาวนาน" }
+        ];
+
+        const sizes = [
+            { size: "185/60R15", lazada: "https://s.lazada.co.th/s.ZhbmNR?c=a&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/5AphjsK8dI", desc: "ขนาดมาตรฐานรถเล็ก ประหยัดน้ำมัน (Vios, Yaris, Jazz, City)" },
+            { size: "195/55R15", lazada: "https://s.lazada.co.th/s.ZhW0iS?c=a&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/6pxvVZ5y94", desc: "ขนาดยอดฮิตรถเก๋งไซส์กลาง เพิ่มการทรงตัวมั่นใจในเมือง" },
+            { size: "195/60R15", lazada: "https://s.lazada.co.th/s.ZhbPNg?c=b&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/8KmjVlcVE8", desc: "ขนาดยางเน้นความนุ่มนวล ขับขี่สบายเดินทางต่างจังหวัด" },
+            { size: "205/55R16", lazada: "https://s.lazada.co.th/s.ZhWZEV?c=b&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/6pxvVZ5y94", desc: "ขนาดยางสำหรับรถเก๋งขนาดกลาง ซับแรงกระแทกได้ดีเยี่ยม" },
+            { size: "265/60R18", lazada: "https://s.lazada.co.th/s.ZhWZL1?c=b&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/6pxvVZ5y94", desc: "ขนาดยอดนิยมสไตล์ SUV และรถกระบะยกสูงทุกยี่ห้อ" },
+            { size: "265/65R17", lazada: "https://s.lazada.co.th/s.ZhWZlR?c=b&sub_aff_id=D6P", shopee: "https://s.shopee.co.th/6pxvVZ5y94", desc: "ขนาดสำหรับกระบะออฟโรดและ SUV ขับขี่นุ่มสบายลุยทุกด่าน" }
         ];
 
         const brandImages = {
-            "Dunlop": "Banners & Creatives/Dunlop Grandtrek AT5.webp",
-            "Bridgestone": "Banners & Creatives/ECOPIA_EP150.jpg",
-            "Yokohama": "Banners & Creatives/YOKOHAMA GEOLANDAR X-AT.png",
-            "Michelin": "Banners & Creatives/ECOPIA_EP150_side.jpg",
-            "Goodyear": "Banners & Creatives/Goodyear Wrangler AT SilentTrac.jpg",
-            "default": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23111827' stroke='%231d4ed8' stroke-width='6'/><circle cx='50' cy='50' r='20' fill='none' stroke='%23facc15' stroke-width='4'/></svg>"
+            "Dunlop": "Tires Brand Logo/DUNLOP CAT.png",
+            "Deestone": "Tires Brand Logo/DEESTONE CAT.png",
+            "Bridgestone": "Tires Brand Logo/BRIDGESTONE CAT.png",
+            "Goodyear": "Tires Brand Logo/GOODYEAR CAT.png",
+            "Yokohama": "Tires Brand Logo/YOKOHAMA CAT.png",
+            "Michelin": "Tires Brand Logo/Gemini_Generated_Image_ (2).png",
+            "default": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23111827' stroke='%2310b981' stroke-width='6'/><circle cx='50' cy='50' r='20' fill='none' stroke='%233b82f6' stroke-width='4'/></svg>"
         };
 
         function getBrandImage(brandName) {
@@ -526,82 +494,78 @@
             return brandImages["default"];
         }
 
-        // Filter Function
-        function filterTires() {
-            const vehicle = document.getElementById('vehicle-type').value;
-            const style = document.getElementById('driving-style').value;
-            const size = document.getElementById('tire-size').value;
-            
-            const filtered = tires.filter(t => {
-                const matchesVehicle = (vehicle === 'all' || t.type === vehicle);
-                const matchesStyle = (style === 'all' || t.style === style);
-                const matchesSize = (size === 'all' || t.rim === size);
-                return matchesVehicle && matchesStyle && matchesSize;
-            });
+        // Render functions
+        function initStore() {
+            const brandGrid = document.getElementById('brand-grid');
+            const sizeGrid = document.getElementById('size-grid');
 
-            renderResults(filtered);
-        }
-
-        // Render Results
-        function renderResults(items) {
-            const grid = document.getElementById('results-grid');
-            const countLabel = document.getElementById('results-count');
-            grid.innerHTML = '';
-            
-            countLabel.innerText = `แสดงผล ${items.length} รายการ`;
-
-            if (items.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary); background: var(--card-bg); border: 1px dashed var(--card-border); border-radius: 20px;">
-                        <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 32px; display: block; margin-bottom: 12px; color: var(--brand-yellow);"></i>
-                        ไม่พบรุ่นยางที่ตรงกับสเปกที่คุณค้นหา กรุณาลองเปลี่ยนเงื่อนไขค้นหาอีกครั้ง
-                    </div>
-                `;
-                return;
-            }
-
-            items.forEach(t => {
-                const img = getBrandImage(t.brand);
+            // Render Brands
+            brandGrid.innerHTML = '';
+            brands.forEach(b => {
+                const img = getBrandImage(b.name);
                 const card = document.createElement('div');
-                card.className = 'bento-card';
-                
-                let specsHTML = '';
-                t.specs.forEach(s => {
-                    specsHTML += `
-                        <div class="spec-item">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>${s}</span>
-                        </div>
-                    `;
-                });
-
+                card.className = 'card';
+                card.setAttribute('data-search', `${b.name.toLowerCase()} ${b.code.toLowerCase()}`);
                 card.innerHTML = `
                     <div>
                         <div class="card-header">
-                            <span class="brand-name">${t.name}</span>
-                            <span class="badge-tire">ขอบ ${t.rim}</span>
+                            <div class="brand-logo-container">
+                                <img src="${b.logo}" alt="${b.name} logo" class="brand-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                                <span class="brand-title" style="display: none;">${b.name}</span>
+                            </div>
+                            <span class="brand-code">${b.code}</span>
                         </div>
                         <div class="card-media">
-                            <img src="${img}" alt="${t.name}">
+                            <img src="${img}" alt="${b.name}">
                         </div>
-                        <p class="card-desc">${t.desc}</p>
-                        <div class="card-specs">
-                            ${specsHTML}
-                        </div>
+                        <p class="card-desc">${b.desc}</p>
                     </div>
                     <div class="btn-group">
-                        <a href="${t.shopee}" target="_blank" class="btn btn-shopee"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
-                        <a href="${t.lazada}" target="_blank" class="btn btn-lazada"><i class="fa-solid fa-shopping-cart"></i> Lazada</a>
+                        <a href="${b.shopee}" target="_blank" class="btn btn-shopee"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
+                        <a href="${b.lazada}" target="_blank" class="btn btn-lazada"><i class="fa-solid fa-shopping-cart"></i> Lazada</a>
                     </div>
                 `;
-                grid.appendChild(card);
+                brandGrid.appendChild(card);
+            });
+
+            // Render Sizes
+            sizeGrid.innerHTML = '';
+            sizes.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-search', `${s.size.toLowerCase()}`);
+                card.innerHTML = `
+                    <div>
+                        <div class="card-header">
+                            <span class="brand-title">ขนาด ${s.size}</span>
+                            <span class="brand-code"><i class="fa-solid fa-expand"></i></span>
+                        </div>
+                        <p class="card-desc" style="min-height: 48px;">${s.desc}</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="${s.shopee}" target="_blank" class="btn btn-shopee"><i class="fa-solid fa-bag-shopping"></i> Shopee</a>
+                        <a href="${s.lazada}" target="_blank" class="btn btn-lazada"><i class="fa-solid fa-shopping-cart"></i> Lazada</a>
+                    </div>
+                `;
+                sizeGrid.appendChild(card);
             });
         }
 
-        // Initialize Web Store
-        window.onload = function() {
-            filterTires();
-        };
+        // Search Filter
+        function filterStore() {
+            const query = document.getElementById('store-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const text = card.getAttribute('data-search');
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        window.onload = initStore;
     </script>
 </body>
 </html>
