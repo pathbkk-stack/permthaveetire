@@ -276,10 +276,16 @@
         }
 
         .brand-logo-img {
-            height: 28px;
-            max-width: 140px;
+            height: 24px;
+            max-width: 120px;
             object-fit: contain;
-            filter: brightness(1.1);
+            filter: brightness(0) invert(1);
+            opacity: 0.85;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover .brand-logo-img {
+            opacity: 1;
         }
 
         .brand-title {
@@ -458,12 +464,12 @@
     <script>
         // Database
         const brands = [
-            { name: "Dunlop (ดันลอป)", code: "AT5 / LM705 Series", logo: "Tires Brand Logo/DUNLOP Logo.png", lazada: "https://s.lazada.co.th/s.Z2rmYE?cc", shopee: "https://s.shopee.co.th/4Aun5IvrHN", desc: "ยางขวัญใจผู้ใช้ทั่วไป นุ่มเงียบ ทนทาน ราคาสบายกระเป๋า สมรรถนะเทียบราคาคุ้มสุดๆ" },
-            { name: "Deestone (ดีสโตน)", code: "RA01 / Payak Series", logo: "Tires Brand Logo/DEESTONE Logo.png", lazada: "https://s.lazada.co.th/s.Zhdeok", shopee: "https://s.shopee.co.th/3LLg5rbz2D", desc: "ยางสัญชาติไทยยอดนิยม ทนทาน ลุยสภาพถนนเมืองไทยได้ดีเยี่ยม ขวัญใจสายคุ้มค่า" },
-            { name: "Bridgestone (บริดจสโตน)", code: "Potenza / Turanza Series", logo: "Tires Brand Logo/BRIDGESTONE LOGO.png", lazada: "https://s.lazada.co.th/s.Z2rNhV?cc", shopee: "https://s.shopee.co.th/7fUfGBogX0", desc: "ยางระดับพรีเมียมเทคโนโลยีญี่ปุ่น ทรงตัวเกาะถนนแม่นยำสูงสุดในทุกสถานการณ์" },
-            { name: "Goodyear (กู๊ดเยียร์)", code: "Wrangler / Assurance Series", logo: "Tires Brand Logo/GOODYEAR Logo.png", lazada: "https://s.lazada.co.th/s.Z2rNMm?cc", shopee: "https://s.shopee.co.th/5q3150jjhg", desc: "ยางแกร่งทนทานเกาะถนนเปียกเป็นเลิศ อายุการใช้งานยาวนาน เดินทางใกล้ไกลอุ่นใจเสมอ" },
-            { name: "Yokohama (โยโกฮาม่า)", code: "ADVAN dB / BluEarth Series", logo: "Tires Brand Logo/YOKOHAMA CAT-V.png", lazada: "https://s.lazada.co.th/s.Z2IZSh?cc", shopee: "https://s.shopee.co.th/2B66M9bY1K", desc: "สุนทรียภาพแห่งความนุ่มเงียบสงบในห้องโดยสาร รีดน้ำดี ประหยัดพลังงานได้ยอดเยี่ยม" },
-            { name: "Michelin (มิชลิน)", code: "Primacy / Energy Series", logo: "Tires Brand Logo/Gemini_Generated_Image_ (2).png", lazada: "https://s.lazada.co.th/s.zLT47?cc", shopee: "https://s.shopee.co.th/5AihBJN3PE", desc: "ยางพรีเมียมนุ่มเงียบอันดับหนึ่ง ประสิทธิภาพสูงสุดตลอดอายุการใช้งานยาวนาน" }
+            { name: "Dunlop (ดันลอป)", code: "AT5 / LM705 Series", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Dunlop_logo.svg", lazada: "https://s.lazada.co.th/s.Z2rmYE?cc", shopee: "https://s.shopee.co.th/4Aun5IvrHN", desc: "ยางขวัญใจผู้ใช้ทั่วไป นุ่มเงียบ ทนทาน ราคาสบายกระเป๋า สมรรถนะเทียบราคาคุ้มสุดๆ" },
+            { name: "Deestone (ดีสโตน)", code: "RA01 / Payak Series", logo: "https://logo.clearbit.com/deestone.com", lazada: "https://s.lazada.co.th/s.Zhdeok", shopee: "https://s.shopee.co.th/3LLg5rbz2D", desc: "ยางสัญชาติไทยยอดนิยม ทนทาน ลุยสภาพถนนเมืองไทยได้ดีเยี่ยม ขวัญใจสายคุ้มค่า" },
+            { name: "Bridgestone (บริดจสโตน)", code: "Potenza / Turanza Series", logo: "https://upload.wikimedia.org/wikipedia/commons/3/30/Bridgestone_logo.svg", lazada: "https://s.lazada.co.th/s.Z2rNhV?cc", shopee: "https://s.shopee.co.th/7fUfGBogX0", desc: "ยางระดับพรีเมียมเทคโนโลยีญี่ปุ่น ทรงตัวเกาะถนนแม่นยำสูงสุดในทุกสถานการณ์" },
+            { name: "Goodyear (กู๊ดเยียร์)", code: "Wrangler / Assurance Series", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Goodyear_logo.svg", lazada: "https://s.lazada.co.th/s.Z2rNMm?cc", shopee: "https://s.shopee.co.th/5q3150jjhg", desc: "ยางแกร่งทนทานเกาะถนนเปียกเป็นเลิศ อายุการใช้งานยาวนาน เดินทางใกล้ไกลอุ่นใจเสมอ" },
+            { name: "Yokohama (โยโกฮาม่า)", code: "ADVAN dB / BluEarth Series", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Yokohama-logo.svg", lazada: "https://s.lazada.co.th/s.Z2IZSh?cc", shopee: "https://s.shopee.co.th/2B66M9bY1K", desc: "สุนทรียภาพแห่งความนุ่มเงียบสงบในห้องโดยสาร รีดน้ำดี ประหยัดพลังงานได้ยอดเยี่ยม" },
+            { name: "Michelin (มิชลิน)", code: "Primacy / Energy Series", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Michelin_logo.svg", lazada: "https://s.lazada.co.th/s.zLT47?cc", shopee: "https://s.shopee.co.th/5AihBJN3PE", desc: "ยางพรีเมียมนุ่มเงียบอันดับหนึ่ง ประสิทธิภาพสูงสุดตลอดอายุการใช้งานยาวนาน" }
         ];
 
         const sizes = [
