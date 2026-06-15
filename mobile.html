@@ -845,27 +845,44 @@
             searchBrandsMobile();
         }
 
-        // Brand tire images mapping using actual files from "Banners & Creatives" folder
+        // Brand tire images mapping using actual files from "Tires Brand Logo" folder
         const brandImages = {
-            "Dunlop (ดันลอป)": "Banners & Creatives/Dunlop Grandtrek AT5.webp",
-            "Deestone (ดีสโตน)": "Banners & Creatives/deestone-premium-tourer-ra01-b-aaa-2__38008.jpg",
-            "Bridgestone (บริดจสโตน)": "Banners & Creatives/ECOPIA_EP150.jpg",
-            "Goodyear (กู๊ดเยียร์)": "Banners & Creatives/Goodyear Wrangler AT SilentTrac.jpg",
-            "Yokohama (โยโกฮาม่า)": "Banners & Creatives/YOKOHAMA GEOLANDAR X-AT.png",
-            "Triangle (ไตรแองเกิล)": "Banners & Creatives/TRIANGLE EffeXSport TH202.png",
-            "Goodride (กู๊ดไรด์)": "Banners & Creatives/goodride-sa-37-f-f-l462x600-sk7.png",
-            "Michelin (มิชลิน)": "Banners & Creatives/ECOPIA_EP150_side.jpg",
-            "BFGoodrich (บีเอฟกู๊ดริช)": "Banners & Creatives/DUELER ALL-TERRAIN A:T002.png",
+            "Dunlop": "Tires Brand Logo/DUNLOP CAT.png",
+            "Deestone": "Tires Brand Logo/DEESTONE CAT.png",
+            "Bridgestone": "Tires Brand Logo/BRIDGESTONE CAT.png",
+            "Goodyear": "Tires Brand Logo/GOODYEAR CAT.png",
+            "Yokohama": "Tires Brand Logo/YOKOHAMA CAT.png",
+            "Michelin": "Tires Brand Logo/Gemini_Generated_Image_ (2).png",
             "default": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23111827' stroke='%2310b981' stroke-width='6'/><circle cx='50' cy='50' r='20' fill='none' stroke='%233b82f6' stroke-width='4'/></svg>"
+        };
+
+        const fallbackBrandImages = {
+            "Dunlop": "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=500&q=80",
+            "Deestone": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=500&q=80",
+            "Bridgestone": "https://images.unsplash.com/photo-1611245749712-4043b3558c42?auto=format&fit=crop&w=500&q=80",
+            "Goodyear": "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=500&q=80",
+            "Yokohama": "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=500&q=80",
+            "Michelin": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=500&q=80",
+            "default": "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=500&q=80"
         };
 
         function getBrandImage(brandName) {
             for (let key in brandImages) {
-                if (brandName.toLowerCase().includes(key.split(' ')[0].toLowerCase())) {
+                if (brandName.toLowerCase().includes(key.toLowerCase())) {
                     return brandImages[key];
                 }
             }
             return brandImages["default"];
+        }
+
+        function handleTireErrorMobile(imgElement, brandName) {
+            for (let key in fallbackBrandImages) {
+                if (brandName.toLowerCase().includes(key.toLowerCase())) {
+                    imgElement.src = fallbackBrandImages[key];
+                    return;
+                }
+            }
+            imgElement.src = fallbackBrandImages["default"];
         }
 
         // Render functions
@@ -897,7 +914,7 @@
                         <span class="badge-pwa badge-green">${brand.type === 'sk-brands' ? 'SK Auto' : 'ร้านอื่น'}</span>
                     </div>
                     <div class="card-media" style="width: 100%; height: 120px; overflow: hidden; border-radius: 10px; margin-bottom: 12px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center;">
-                        <img src="${imgPath}" alt="${brand.name}" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                        <img src="${imgPath}" alt="${brand.name}" onerror="handleTireErrorMobile(this, '${brand.name}')" style="max-height: 100%; max-width: 100%; object-fit: contain;">
                     </div>
                     <div class="touch-action-row">
                         <button class="btn-touch btn-shopee" onclick="copyLink('${brand.shopee}', 'คัดลอก Shopee: ${brand.name} แล้ว!')">
