@@ -917,11 +917,11 @@
                         <img src="${imgPath}" alt="${brand.name}" onerror="handleTireErrorMobile(this, '${brand.name}')" style="max-height: 100%; max-width: 100%; object-fit: contain;">
                     </div>
                     <div class="touch-action-row">
-                        <button class="btn-touch btn-shopee" onclick="copyLink('${brand.shopee}', 'คัดลอก Shopee: ${brand.name} แล้ว!')">
-                            <i class="fa-solid fa-copy"></i> Shopee
-                        </button>
                         <button class="btn-touch btn-lazada" onclick="copyLink('${brand.lazada}', 'คัดลอก Lazada: ${brand.name} แล้ว!')">
                             <i class="fa-solid fa-copy"></i> Lazada
+                        </button>
+                        <button class="btn-touch btn-shopee" onclick="copyLink('${brand.shopee}', 'คัดลอก Shopee: ${brand.name} แล้ว!')">
+                            <i class="fa-solid fa-copy"></i> Shopee
                         </button>
                     </div>
                 `;
@@ -938,11 +938,11 @@
                 card.innerHTML = `
                     <span class="size-text">${item.size}</span>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <button class="btn-touch btn-shopee" style="padding: 10px; font-size: 11px;" onclick="copyLink('${item.shopee}', 'คัดลอกลิงก์ Shopee ขนาด ${item.size}!')">
-                            <i class="fa-solid fa-copy"></i> Shopee
-                        </button>
                         <button class="btn-touch btn-lazada" style="padding: 10px; font-size: 11px;" onclick="copyLink('${item.lazada}', 'คัดลอกลิงก์ Lazada ขนาด ${item.size}!')">
                             <i class="fa-solid fa-copy"></i> Lazada
+                        </button>
+                        <button class="btn-touch btn-shopee" style="padding: 10px; font-size: 11px;" onclick="copyLink('${item.shopee}', 'คัดลอกลิงก์ Shopee ขนาด ${item.size}!')">
+                            <i class="fa-solid fa-copy"></i> Shopee
                         </button>
                     </div>
                 `;
@@ -968,11 +968,11 @@
                         <span class="badge-pwa badge-orange">Popular</span>
                     </div>
                     <div class="touch-action-row">
-                        <button class="btn-touch btn-shopee" onclick="copyLink('${shopeeLink}', 'คัดลอก Shopee: ${shop.name} แล้ว!')">
-                            <i class="fa-solid fa-copy"></i> Shopee
-                        </button>
                         <button class="btn-touch btn-lazada" onclick="copyLink('${lazadaLink}', 'คัดลอก Lazada: ${shop.name} แล้ว!')">
                             <i class="fa-solid fa-copy"></i> Lazada
+                        </button>
+                        <button class="btn-touch btn-shopee" onclick="copyLink('${shopeeLink}', 'คัดลอก Shopee: ${shop.name} แล้ว!')">
+                            <i class="fa-solid fa-copy"></i> Shopee
                         </button>
                     </div>
                 `;
